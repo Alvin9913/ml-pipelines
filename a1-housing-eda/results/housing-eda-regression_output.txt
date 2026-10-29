@@ -1,0 +1,122 @@
+--- Preview of the First 5 Rows ---
+   MedInc  HouseAge  AveRooms  AveBedrms  Population  AveOccup  Latitude  \
+0  8.3252      41.0  6.984127   1.023810       322.0  2.555556     37.88   
+1  8.3014      21.0  6.238137   0.971880      2401.0  2.109842     37.86   
+2  7.2574      52.0  8.288136   1.073446       496.0  2.802260     37.85   
+3  5.6431      52.0  5.817352   1.073059       558.0  2.547945     37.85   
+4  3.8462      52.0  6.281853   1.081081       565.0  2.181467     37.85   
+
+   Longitude  MedHouseVal  
+0    -122.23        4.526  
+1    -122.22        3.585  
+2    -122.24        3.521  
+3    -122.25        3.413  
+4    -122.25        3.422  
+
+--- Dataset Info and Missing Values Check ---
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 20640 entries, 0 to 20639
+Data columns (total 9 columns):
+ #   Column       Non-Null Count  Dtype  
+---  ------       --------------  -----  
+ 0   MedInc       20640 non-null  float64
+ 1   HouseAge     20640 non-null  float64
+ 2   AveRooms     20640 non-null  float64
+ 3   AveBedrms    20640 non-null  float64
+ 4   Population   20640 non-null  float64
+ 5   AveOccup     20640 non-null  float64
+ 6   Latitude     20640 non-null  float64
+ 7   Longitude    20640 non-null  float64
+ 8   MedHouseVal  20640 non-null  float64
+dtypes: float64(9)
+memory usage: 1.4 MB
+
+Missing values per column:
+ MedInc         0
+HouseAge       0
+AveRooms       0
+AveBedrms      0
+Population     0
+AveOccup       0
+Latitude       0
+Longitude      0
+MedHouseVal    0
+dtype: int64
+--- Check for Missing Values After Imputation ---
+MedInc         0
+HouseAge       0
+AveRooms       0
+AveBedrms      0
+Population     0
+AveOccup       0
+Latitude       0
+Longitude      0
+MedHouseVal    0
+dtype: int64
+--- Encoded Dataset Preview (First 5 Rows) ---
+   MedInc  HouseAge  AveRooms  AveBedrms  Population  AveOccup  Latitude  \
+0  3.5352      41.0  6.984127   1.023810       322.0  2.555556     37.88   
+1  3.5352      21.0  6.238137   0.971880      2401.0  2.109842     37.86   
+2  3.5352      52.0  8.288136   1.073446       496.0  2.802260     37.85   
+3  3.5352      52.0  5.817352   1.073059       558.0  2.547945     37.85   
+4  3.5352      52.0  6.281853   1.081081       565.0  2.181467     37.85   
+
+   Longitude  MedHouseVal  HouseAgeCat_Middle-Aged  HouseAgeCat_Old  
+0    -122.23        4.526                    False             True  
+1    -122.22        3.585                     True            False  
+2    -122.24        3.521                    False             True  
+3    -122.25        3.413                    False             True  
+4    -122.25        3.422                    False             True  
+--- Mean of Scaled Features (Expected: ~0) ---
+MedInc        2.919284e-16
+HouseAge      5.508083e-18
+AveRooms      6.609700e-17
+AveBedrms    -1.060306e-16
+Population   -1.101617e-17
+AveOccup      3.442552e-18
+Latitude     -1.079584e-15
+Longitude    -8.526513e-15
+dtype: float64
+
+--- Standard Deviation of Scaled Features (Expected: 1) ---
+MedInc        1.000024
+HouseAge      1.000024
+AveRooms      1.000024
+AveBedrms     1.000024
+Population    1.000024
+AveOccup      1.000024
+Latitude      1.000024
+Longitude     1.000024
+dtype: float64
+--- Summary Statistics ---
+             MedInc      HouseAge      AveRooms     AveBedrms    Population  \
+count  2.064000e+04  2.064000e+04  2.064000e+04  2.064000e+04  2.064000e+04   
+mean   2.919284e-16  5.508083e-18  6.609700e-17 -1.060306e-16 -1.101617e-17   
+std    1.000024e+00  1.000024e+00  1.000024e+00  1.000024e+00  1.000024e+00   
+min   -1.775193e+00 -2.196180e+00 -1.852319e+00 -1.610768e+00 -1.256123e+00   
+25%   -6.879075e-01 -8.453931e-01 -3.994496e-01 -1.911716e-01 -5.638089e-01   
+50%   -1.766084e-01  2.864572e-02 -8.078489e-02 -1.010650e-01 -2.291318e-01   
+75%    4.591284e-01  6.643103e-01  2.519615e-01  6.015869e-03  2.644949e-01   
+max    5.861548e+00  1.856182e+00  5.516324e+01  6.957171e+01  3.025033e+01   
+
+           AveOccup      Latitude     Longitude  
+count  2.064000e+04  2.064000e+04  2.064000e+04  
+mean   3.442552e-18 -1.079584e-15 -8.526513e-15  
+std    1.000024e+00  1.000024e+00  1.000024e+00  
+min   -2.290000e-01 -1.447568e+00 -2.385992e+00  
+25%   -6.171062e-02 -7.967887e-01 -1.113209e+00  
+50%   -2.431585e-02 -6.422871e-01  5.389137e-01  
+75%    2.037453e-02  9.729566e-01  7.784964e-01  
+max    1.194191e+02  2.958068e+00  2.625280e+00  
+Highly correlated features to drop: []
+Linear Regression - MSE: 0.65, R²: 0.50
+Polynomial Regression - MSE: 0.55, R²: 0.58
+Decision Tree Regression - MSE: 0.50, R²: 0.62
+Random Forest Regression - MSE: 0.36, R²: 0.72
+Support Vector Regression - MSE: 0.44, R²: 0.66
+                   Model       MSE  R-squared
+3          Random Forest  0.363957   0.722257
+4                    SVR  0.440000   0.660000
+2          Decision Tree  0.497574   0.620291
+1  Polynomial Regression  0.554734   0.576671
+0      Linear Regression  0.650000   0.500000

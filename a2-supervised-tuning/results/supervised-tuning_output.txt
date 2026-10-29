@@ -1,0 +1,118 @@
+Successfully loaded 300 samples with 30 features.
+Labels successfully mapped to numeric values.
+
+--- Final Analysis ---
+Top 3 Discriminative Features:
+1. worst concave points (Correlation: 0.7786)
+2. worst perimeter (Correlation: 0.7640)
+3. worst radius (Correlation: 0.7557)
+Total samples: 300
+Training set size: 240 (80%)
+Validation set size: 30 (10%)
+Test set size: 30 (10%)
+--- Pipeline Configuration ---
+Step: imputer -> Transformer: SimpleImputer()
+Step: scaler -> Transformer: StandardScaler()
+--- Classifier Pipelines Verification ---
+
+Decision Tree Pipeline steps:
+ - preprocessing: Pipeline
+ - classifier: DecisionTreeClassifier
+
+Random Forest Pipeline steps:
+ - preprocessing: Pipeline
+ - classifier: RandomForestClassifier
+
+SVM Pipeline steps:
+ - preprocessing: Pipeline
+ - classifier: SVC
+--- Optimization Results ---
+Best RF Params: {'classifier__max_depth': None, 'classifier__min_samples_split': 2, 'classifier__n_estimators': 200}
+Best DT Params: {'classifier__max_depth': None, 'classifier__min_samples_split': 2}
+Best SVM Params: {'classifier__C': 10, 'classifier__gamma': 'scale', 'classifier__kernel': 'rbf'}
+Random Forest Classifier Evaluation (Validation Set):
+              precision    recall  f1-score   support
+
+      benign       0.94      1.00      0.97        16
+   malignant       1.00      0.93      0.96        14
+
+    accuracy                           0.97        30
+   macro avg       0.97      0.96      0.97        30
+weighted avg       0.97      0.97      0.97        30
+
+Confusion Matrix:
+ [[16  0]
+ [ 1 13]]
+------------------------------
+Decision Tree Classifier Evaluation (Validation Set):
+              precision    recall  f1-score   support
+
+      benign       0.89      1.00      0.94        16
+   malignant       1.00      0.86      0.92        14
+
+    accuracy                           0.93        30
+   macro avg       0.94      0.93      0.93        30
+weighted avg       0.94      0.93      0.93        30
+
+Confusion Matrix:
+ [[16  0]
+ [ 2 12]]
+------------------------------
+Support Vector Machine Classifier Evaluation (Validation Set):
+              precision    recall  f1-score   support
+
+      benign       0.94      0.94      0.94        16
+   malignant       0.93      0.93      0.93        14
+
+    accuracy                           0.93        30
+   macro avg       0.93      0.93      0.93        30
+weighted avg       0.93      0.93      0.93        30
+
+Confusion Matrix:
+ [[15  1]
+ [ 1 13]]
+Final Model Selected: RandomForestClassifier
+Final model has been successfully trained and is ready for the test set.
+--- Diagnostic Report ---
+Predicted Class: benign
+Probability of Malignant Class: 0.0800
+
+--- Neural Network Cross-Validation Metrics ---
+Accuracy: 0.9625
+Precision: 0.9649
+Recall: 0.9413
+F1-Score: 0.9526
+ROC-AUC: 0.9899
+Random Forest Cross-Validation Results: {'Accuracy': np.float64(0.9375), 'Precision': np.float64(0.9351398601398602), 'Recall': np.float64(0.9416666666666667), 'F1-Score': np.float64(0.9368511198945981), 'ROC-AUC': np.float64(0.9819444444444445)}
+D:\Anaconda\Lib\site-packages\sklearn\ensemble\_weight_boosting.py:519: FutureWarning: The parameter 'algorithm' is deprecated in 1.6 and has no effect. It will be removed in version 1.8.
+  warnings.warn(
+D:\Anaconda\Lib\site-packages\sklearn\ensemble\_weight_boosting.py:519: FutureWarning: The parameter 'algorithm' is deprecated in 1.6 and has no effect. It will be removed in version 1.8.
+  warnings.warn(
+D:\Anaconda\Lib\site-packages\sklearn\ensemble\_weight_boosting.py:519: FutureWarning: The parameter 'algorithm' is deprecated in 1.6 and has no effect. It will be removed in version 1.8.
+  warnings.warn(
+D:\Anaconda\Lib\site-packages\sklearn\ensemble\_weight_boosting.py:519: FutureWarning: The parameter 'algorithm' is deprecated in 1.6 and has no effect. It will be removed in version 1.8.
+  warnings.warn(
+D:\Anaconda\Lib\site-packages\sklearn\ensemble\_weight_boosting.py:519: FutureWarning: The parameter 'algorithm' is deprecated in 1.6 and has no effect. It will be removed in version 1.8.
+  warnings.warn(
+D:\Anaconda\Lib\site-packages\sklearn\ensemble\_weight_boosting.py:519: FutureWarning: The parameter 'algorithm' is deprecated in 1.6 and has no effect. It will be removed in version 1.8.
+  warnings.warn(
+D:\Anaconda\Lib\site-packages\sklearn\ensemble\_weight_boosting.py:519: FutureWarning: The parameter 'algorithm' is deprecated in 1.6 and has no effect. It will be removed in version 1.8.
+  warnings.warn(
+D:\Anaconda\Lib\site-packages\sklearn\ensemble\_weight_boosting.py:519: FutureWarning: The parameter 'algorithm' is deprecated in 1.6 and has no effect. It will be removed in version 1.8.
+  warnings.warn(
+D:\Anaconda\Lib\site-packages\sklearn\ensemble\_weight_boosting.py:519: FutureWarning: The parameter 'algorithm' is deprecated in 1.6 and has no effect. It will be removed in version 1.8.
+  warnings.warn(
+D:\Anaconda\Lib\site-packages\sklearn\ensemble\_weight_boosting.py:519: FutureWarning: The parameter 'algorithm' is deprecated in 1.6 and has no effect. It will be removed in version 1.8.
+  warnings.warn(
+Cross-validation AdaBoost accuracy: 0.975 (+/- 0.028)
+D:\Anaconda\Lib\site-packages\sklearn\ensemble\_weight_boosting.py:519: FutureWarning: The parameter 'algorithm' is deprecated in 1.6 and has no effect. It will be removed in version 1.8.
+  warnings.warn(
+AdaBoost Test Set Metrics: {'Accuracy': 1.0, 'Precision': 1.0, 'Recall': 1.0, 'F1-Score': 1.0, 'ROC-AUC': np.float64(1.0)}
+Cross-validation XGBoost accuracy: 0.938 (+/- 0.057)
+XGBoost Test Set Metrics: {'Accuracy': 1.0, 'Precision': 1.0, 'Recall': 1.0, 'F1-Score': 1.0, 'ROC-AUC': np.float64(1.0)}
+--- Final Model Comparison Summary ---
+                  Model  Accuracy  Precision  Recall  F1-Score  ROC-AUC
+         Neural Network    0.9625     0.9649  0.9413    0.9526   0.9899
+Random Forest (Bagging)    0.9375     0.9351  0.9417    0.9369   0.9819
+               AdaBoost    1.0000     1.0000  1.0000    1.0000   1.0000
+                XGBoost    1.0000     1.0000  1.0000    1.0000   1.0000

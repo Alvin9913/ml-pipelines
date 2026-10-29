@@ -1,0 +1,50 @@
+K-Means Labels: [2 2 2 2 2 2 2 2 2 2]
+Agglomerative Labels: [2 2 2 2 2 2 2 2 2 2]
+K-Means - DBI: 1.3892, CH Score: 70.9400
+Agglomerative - DBI: 1.4186, CH Score: 67.6475
+K-Means - ARI: 0.8975, NMI: 0.8759
+Agglomerative - ARI: 0.7899, NMI: 0.7865
+Class Distribution:
+ true_label
+1    0.398876
+0    0.331461
+2    0.269663
+Name: proportion, dtype: float64
+Training data shape: (124, 13)
+Testing data shape: (54, 13)
+NeuralNet(
+  (fc1): Linear(in_features=13, out_features=128, bias=True)
+  (fc2): Linear(in_features=128, out_features=64, bias=True)
+  (fc3): Linear(in_features=64, out_features=32, bias=True)
+  (output): Linear(in_features=32, out_features=3, bias=True)
+  (dropout): Dropout(p=0.5, inplace=False)
+)
+Best Validation Loss after Early Stopping: 0.0009
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.95      1.00      0.97        18
+           1       0.95      0.95      0.95        21
+           2       1.00      0.93      0.97        15
+
+    accuracy                           0.96        54
+   macro avg       0.97      0.96      0.96        54
+weighted avg       0.96      0.96      0.96        54
+
+Early stopping at epoch 6
+Best Validation Loss after tuning: 0.0702
+Best Parameters: {'batch_size': 32, 'epochs': 50, 'learning_rate': 0.001, 'patience': 5}
+5-Fold Cross-Validation Scores: [1.0, 0.9722222222222222, 0.9722222222222222, 0.9428571428571428, 1.0]
+Mean Cross-Validation Score: 0.9775
+                          Metric  Clustering  Classification
+0            Adjusted Rand Index    0.897495             NaN
+1  Normalized Mutual Information    0.875894             NaN
+2                       Accuracy         NaN        0.981481
+3                      Precision         NaN        0.982323
+4                         Recall         NaN        0.981481
+5                       F1-Score         NaN        0.981378
+6                        ROC-AUC         NaN        1.000000
+
+Model Diagnostics complete.
+- Training and validation curves plotted above.
+- Confusion Matrix shows 52 correct out of 54 test samples.
