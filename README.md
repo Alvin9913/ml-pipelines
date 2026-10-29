@@ -1,52 +1,52 @@
 # ML Pipelines
 
-三个完整的机器学习流程：从原始数据预处理、探索性分析，到建模、调参、交叉验证与评估。结果都来自 notebook 的真实输出，没有挑好看的写。
+Three machine learning tasks I did end to end: cleaning the data, doing EDA, then building, tuning and evaluating models. All the numbers below are what the notebooks actually printed, including the parts that look bad.
 
-## a1 · 房价数据 EDA + 回归建模
+## a1 · House price EDA + regression
 
 `a1-housing-eda/housing-eda-regression.ipynb`
 
-加州房价数据集，30 个 cell 走完：缺失值处理 → 特征工程 → 分布与相关性分析 → 五个回归模型对比。
+California housing data, 30 cells: missing values, feature work, distributions and correlation, then five regression models compared.
 
-| 模型 | MSE | R² |
+| Model | MSE | R² |
 |---|---|---|
-| 线性回归 | 0.65 | 0.50 |
-| 多项式回归 | 0.55 | 0.58 |
-| 决策树 | 0.50 | 0.62 |
-| 随机森林 | **0.36** | **0.72** |
-| 支持向量回归 | 0.44 | 0.66 |
+| Linear regression | 0.65 | 0.50 |
+| Polynomial regression | 0.55 | 0.58 |
+| Decision tree | 0.50 | 0.62 |
+| Random forest | **0.36** | **0.72** |
+| SVR | 0.44 | 0.66 |
 
-结论：这个数据集的非线性主要来自地理位置的交互项，线性模型加特征也只能到 0.50，树模型直接吃掉这部分。5 张 EDA 与结果图在 `results/`。
+What I took away: most of the non-linearity here comes from location interactions. A linear model only reaches 0.50 even after feature work, and the tree models pick that up on their own. The 5 EDA and result figures are in `results/`.
 
-## a2 · 监督学习调优与评估
+## a2 · Supervised learning, tuning and evaluation
 
-`a2-supervised-tuning/supervised-tuning.ipynb` + `assignment2.csv` + 报告
+`a2-supervised-tuning/supervised-tuning.ipynb` + `assignment2.csv` + report
 
-- 在真实表格数据上对比多种监督学习算法。
-- 用**交叉验证 + 网格搜索**选超参，不是手调一组就交：
-  - AdaBoost：CV **0.975 ± 0.028**
-  - XGBoost：CV **0.938 ± 0.057**
-- 两个模型在测试集上都是 1.0 —— 报告里也写了这可能是划分过于干净导致的，不把它当作真实水平吹。
+- Compared several supervised models on a real tabular dataset.
+- Used **cross-validation plus grid search** for the hyperparameters instead of guessing one setting:
+  - AdaBoost: CV **0.975 ± 0.028**
+  - XGBoost: CV **0.938 ± 0.057**
+- Both models score 1.0 on the test set. I wrote in the report that the split is probably too easy, so I do not treat that as the real performance.
 
-## a3 · 从聚类到分类
+## a3 · From clustering to classification
 
 `a3-clustering-classification/clustering-to-classification.ipynb` + `assignment3_data.csv`
 
-- 拿到的是一份**没有说明的数据集**：先做标准化、降维与聚类，判断里面有几组结构。
-- 再基于聚类结果构造分类任务，训练分类器。
-- 调参结果：`batch_size=32, epochs=50, lr=0.001, patience=5`，最优验证损失 0.0702。
-- 5 折交叉验证：`[1.0, 0.972, 0.972, 0.943, 1.0]`，均值 **0.9775**，测试准确率 **0.9815**。
+- The dataset came with no description, so I started with scaling, dimension reduction and clustering to see how many groups were in there.
+- Then I built a classification task on top of what the clustering showed.
+- Tuning result: `batch_size=32, epochs=50, lr=0.001, patience=5`, best validation loss 0.0702.
+- 5-fold CV: `[1.0, 0.972, 0.972, 0.943, 1.0]`, mean **0.9775**, test accuracy **0.9815**.
 
-## 结果图
+## Result figures
 
-`results/` 里是从 notebook 导出的 19 张图（EDA 分布、相关性热图、聚类可视化、混淆矩阵、学习曲线）。
+`results/` has 19 figures exported from the notebooks (EDA distributions, correlation heatmap, cluster plots, confusion matrices, learning curves).
 
 | | |
 |---|---|
-| ![EDA](a1-housing-eda/results/housing-eda-regression_fig02.png) | ![模型对比](a1-housing-eda/results/housing-eda-regression_fig05.png) |
-| ![调参](a2-supervised-tuning/results/supervised-tuning_fig03.png) | ![聚类](a3-clustering-classification/results/clustering-to-classification_fig02.png) |
+| ![EDA](a1-housing-eda/results/housing-eda-regression_fig02.png) | ![Model comparison](a1-housing-eda/results/housing-eda-regression_fig05.png) |
+| ![Tuning](a2-supervised-tuning/results/supervised-tuning_fig03.png) | ![Clustering](a3-clustering-classification/results/clustering-to-classification_fig02.png) |
 
-## 环境
+## Environment
 
 ```bash
 pip install numpy pandas scikit-learn matplotlib seaborn xgboost
