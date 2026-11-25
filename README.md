@@ -52,3 +52,7 @@ What I took away: most of the non-linearity here comes from location interaction
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 ```
+
+## License
+
+MIT — see [LICENSE](LICENSE).
