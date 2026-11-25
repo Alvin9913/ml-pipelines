@@ -49,5 +49,6 @@ What I took away: most of the non-linearity here comes from location interaction
 ## Environment
 
 ```bash
-pip install numpy pandas scikit-learn matplotlib seaborn xgboost
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
 ```
