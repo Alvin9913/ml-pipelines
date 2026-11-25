@@ -46,6 +46,11 @@ What I took away: most of the non-linearity here comes from location interaction
 | ![EDA](a1-housing-eda/results/housing-eda-regression_fig02.png) | ![Model comparison](a1-housing-eda/results/housing-eda-regression_fig05.png) |
 | ![Tuning](a2-supervised-tuning/results/supervised-tuning_fig03.png) | ![Clustering](a3-clustering-classification/results/clustering-to-classification_fig02.png) |
 
+## Reports
+
+The written report for a2, exported to PDF so it renders in the browser:
+
+- [a2 · Supervised learning, tuning and evaluation — report](reports/a2-supervised-tuning.pdf)
 ## Environment
 
 ```bash
